@@ -40,7 +40,6 @@ function ItemCard() {
         <p className='text-sm text-gray-600'>Mode et création</p>
         <p className='text-sm text-gray-600'>Hand made ✨ Bags and accessories 🌹 || Wax_Bogolan_kôkô Donda_Faso Danfani || Shipping worldwide 🌍 From Burkina 🇧🇫 || 📞 +22676274313</p>
         <p className='text-sm font-semibold'> {showPrice("8000 - 95000")} </p>
-      
     </div>
   )
 }
