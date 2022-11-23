@@ -35,7 +35,6 @@ function ItemCard() {
         </AppSlider>
 
         <div onClick={() => handleLike()} className="absolute top-2 right-8 cursor-pointer"><HeartItem liked={liked} /></div>
-        
         {/* <OutlineHeartIcon className={`h-8 w-8 mx-auto absolute top-2 right-8 text-red-900   `} /> */}
         <p className='font-semibold'> Ima'a , ouagadougou</p>
         <p className='text-sm text-gray-600'>Mode et création</p>
