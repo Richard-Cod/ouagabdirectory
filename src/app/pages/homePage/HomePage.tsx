@@ -6,7 +6,7 @@ import Navbar from "app/components/Navbar"
 
 function HomePage() {
   return (
-    <div>
+    <div className="sm:hidden">
       <Navbar />
       <div className="flex justify-between  pl-4 pr-10">
         <CategoriesList />
