@@ -24,20 +24,41 @@ import { useAppDispatch, useAppSelector } from 'app/redux/hooks';
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { setCategories, setSelectedCategory, setSocieties } from './redux/features/homepageSlice';
 
 function App() {
   const dispatch = useAppDispatch()
   const homePageVM = useAppSelector(selectHomePageVM)
 
-  useEffect(() => {
-    const asyncFunc = async () => {
-      const user = await homePageVM.getLoggedInUser()
-      console.log("rrrrrr")
-      console.log(user)
-    }
+  const loadCurrentUser = async () => {
+    const user = await homePageVM.getLoggedInUser()
+    if(user)dispatch(setUser(user))
+  }
 
-    asyncFunc()
-    
+  const loadSocieties = async () => {
+    const result = await homePageVM.getSocieties()
+    if(result)dispatch(setSocieties(result))
+  }
+
+
+  const loadCategories = async () => {
+    const result = await homePageVM.getCategories()
+    console.log(result)
+    if(result){
+      dispatch(setCategories(result))
+      if(result.length > 0) dispatch(setSelectedCategory(result[0]))
+    }
+  }
+
+  const run = () => {
+    console.clear()
+    loadCurrentUser()
+    loadCategories()
+    loadSocieties()
+  }
+
+  useEffect(() => {
+    run()
   }, [])
   
 

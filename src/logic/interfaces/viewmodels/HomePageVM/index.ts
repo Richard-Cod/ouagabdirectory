@@ -24,6 +24,11 @@ class HomePageVM{
         return result
     }
 
+    getSocieties = async () => {
+        const result  = await  this.dependencyContainer.societyRepo.getSocieties()
+        return result
+    }
+
     
 
 }

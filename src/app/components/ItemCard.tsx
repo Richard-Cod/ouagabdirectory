@@ -3,13 +3,14 @@ import AppSlider from "./AppSlider"
 
 import { HeartIcon  } from '@heroicons/react/24/solid'
 import { HeartIcon as OutlineHeartIcon } from '@heroicons/react/24/outline'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
-import src from 'app/image1.jpg'
-import src1 from 'app/image2.jpg'
-import src2 from 'app/image3.jpg'
-import src3 from 'app/image4.jpg'
+
+import { Society } from "logic/models/Post"
+import { useAppDispatch, useAppSelector } from "app/redux/hooks"
+import { isSocietyLiked, likeOrDislikeSociety, selectLikedSocietiesIds, selectSocieties } from "app/redux/features/homepageSlice"
+import { formatImageFromBackend } from "logic/helper/getImageFromBackend"
 
 
 const HeartItem = ({liked} : {liked : boolean}) => {
@@ -18,28 +19,35 @@ const HeartItem = ({liked} : {liked : boolean}) => {
     </svg>
 }
 
-function ItemCard() {
-  const [liked, setliked] = useState(false)
-  const handleLike = () => {
-    setliked(!liked)
+function ItemCard({society} : {society : Society}) {
+  const dispatch = useAppDispatch()
 
+  const societiesLikedIds = useAppSelector(selectLikedSocietiesIds)
+  const liked = isSocietyLiked(societiesLikedIds,society.id)
+  // const [liked, setliked] = useState(isSocietyLiked(societiesLikedIds,society.id))
+
+  const handleLike = () => {
+    dispatch(likeOrDislikeSociety({societyId : society.id}))
+    // setliked(!liked)
   }
+  const sr = "https://palmares.lemondeduchiffre.fr/images/joomlart/demo/default.jpg"
+
   return (
     <div className='space-y-1 relative'>
+      {(!society.images || society.images.length === 0) && <AppSlider>
+        <img src={sr}  className=" w-full mx-auto rounded-2xl mb-3 " />
+      </AppSlider>}
 
-        <AppSlider>
-          <img style={{objectFit:"fill"}} src={src} className="h-96 w-full mx-auto rounded-2xl mb-3 border-2 " />
-          <img src={src1} className="h-96 w-full mx-auto rounded-2xl mb-3 " />
-          <img src={src2} className="h-96 w-full mx-auto rounded-2xl mb-3 " />
-          <img src={src3} className="h-96 w-full mx-auto rounded-2xl mb-3 " />
-        </AppSlider>
+        {society.images && <AppSlider>
+          {society.images.map((v) => <img src={formatImageFromBackend(v)}  className="h-96 w-full mx-auto rounded-2xl mb-3 " />)}
+        </AppSlider>}
 
         <div onClick={() => handleLike()} className="absolute top-2 right-8 cursor-pointer"><HeartItem liked={liked} /></div>
         {/* <OutlineHeartIcon className={`h-8 w-8 mx-auto absolute top-2 right-8 text-red-900   `} /> */}
-        <p className='font-semibold'> Ima'a , ouagadougou</p>
-        <p className='text-sm text-gray-600'>Mode et création</p>
-        <p className='text-sm text-gray-600'>Hand made ✨ Bags and accessories 🌹 || Wax_Bogolan_kôkô Donda_Faso Danfani || Shipping worldwide 🌍 From Burkina 🇧🇫 || 📞 +22676274313</p>
-        <p className='text-sm font-semibold'> {showPrice("8000 - 95000")} </p>
+        <p className='font-semibold'> {society.name} </p>
+        <p className='text-sm text-gray-600'>{society.category.title}</p>
+        <p className='text-sm text-gray-600'> {society.bio} </p>
+        <p className='text-sm font-semibold'> {showPrice(society.price_range)} </p>
     </div>
   )
 }

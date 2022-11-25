@@ -1,12 +1,15 @@
+import { selectSocieties } from 'app/redux/features/homepageSlice'
+import { useAppSelector } from 'app/redux/hooks'
+import { Society } from 'logic/models/Post'
 import React from 'react'
 import ItemCard from './ItemCard'
 
-function ItemCardList() {
+function ItemCardList({societies} : {societies : Society[]}) {
   return (
     <div className='p-6 space-y-8'>
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
+      {societies?.map((v,i) => {
+        return <ItemCard key={i} society={v} />
+      })}
     </div>
   )
 }

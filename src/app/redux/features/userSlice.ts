@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { User } from 'logic/models/User'
+import { RootState } from '../store'
 export interface UserState {
   value: User | null
 }
@@ -30,7 +31,13 @@ export const userSlice = createSlice({
   },
 })
 
+
+
 // Action creators are generated for each case reducer function
 export const { setUser } = userSlice.actions
+
+
+export const selectUser = (state: RootState) => state.user
+
 
 export default userSlice.reducer

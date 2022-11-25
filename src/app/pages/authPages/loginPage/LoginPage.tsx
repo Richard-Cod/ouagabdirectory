@@ -6,6 +6,7 @@ import { Formik, useFormik } from "formik";
 import Input from "app/components/Input";
 import {Link} from "react-router-dom"
 import { ROUTES } from "constants/constants";
+import { selectUser } from "app/redux/features/userSlice";
 
 function Form({label} : {label : string}) {
   const navigate = useNavigate();
@@ -45,11 +46,15 @@ function Form({label} : {label : string}) {
 }
 
 function LoginPage() {
+    const user = useAppSelector(selectUser)
+
     const label = "login"
     const loginPageVM = useAppSelector(selectLoginPageVM)
 
     return (
       <div>
+
+        {JSON.stringify(user)}
         <Form label={"Connexion"} />
       </div>
     )
