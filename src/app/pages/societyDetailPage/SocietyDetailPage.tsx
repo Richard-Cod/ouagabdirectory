@@ -12,8 +12,10 @@ import { formatImageFromBackend } from "logic/helper/getImageFromBackend"
 import { showPrice } from "logic/helper/showPrice"
 import { useParams } from "react-router-dom"
 
+import phonesvg from 'app/phone.svg'
 import whatsappLogo from 'app/whatsApp.png'
 import facebook from 'app/facebook.svg'
+import SocialContactButton from "app/components/SocialContactButton"
 
 function SocietyDetailPage() {
   // const categories = useAppSelector(selectCategories)
@@ -35,24 +37,27 @@ function SocietyDetailPage() {
           <hr className="my-4" />
 
           <div className="space-y-2">
-           <div>
-            <a
-              className="inline-flex items-center rounded border border-red-600 bg-red-600 px-2 py-3 text-white  hover:text-gray-100 focus:outline-none  "
-              href={`tel:${society.phoneNumber}`}>
-              <PhoneArrowUpRightIcon className="h-5 w-5 text-white mr-4" />
-              <span className="text-sm font-medium"> Appeler au {society.phoneNumber} </span>
-            </a>
-           </div>
+      
 
-           {/* <div>
-            <a
-                className="inline-flex items-center rounded border border-green-600 bg-green-600 px-2 py-3 text-white  hover:text-gray-100 focus:outline-none  "
-                href={`tel:${society.phoneNumber}`}>
-                <img src={whatsappLogo} className="h-4 w-4 text-white mr-2" />
-                <span className="text-sm font-medium"> Contacter sur whatsapp </span>
-              </a>
-           </div> */}
+           <SocialContactButton
+           Icon={PhoneArrowUpRightIcon}
+           classes="bg-red-500"
+            href={`tel:${society.phoneNumber}`}
+            logoSrc={phonesvg} 
+            label={`Appeler au ${society.phoneNumber}`} />
 
+            <SocialContactButton
+              classes="bg-green-500"
+              href={`https://wa.me/${society.whatsapp}`}
+              logoSrc={whatsappLogo} 
+              label={`Contacter sur whatsapp `} />
+
+            <SocialContactButton
+              classes="bg-blue-500"
+              href={`${society.facebook}`}
+              logoSrc={facebook} 
+              label={`Voir le profil facebook`} />
+     
           </div>
 
         </div>

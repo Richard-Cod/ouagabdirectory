@@ -33,7 +33,9 @@ const societies : Society[] = [
       price_range : "2000 - 95000",
       category : categories[0],
       images:[src,src1,src2,src3],
-      phoneNumber : "2112"
+      phoneNumber : "2112",
+      whatsapp : "1223232",
+      facebook: "https://www.facebook.com/jacquesesterel226",
     },
     {
       id:2,
@@ -42,8 +44,9 @@ const societies : Society[] = [
       price_range : "price_range",
       category : categories[0],
       images:[],
-      phoneNumber : "2112"
-
+      phoneNumber : "2112",
+      whatsapp : "1223232",
+      facebook: "https://www.facebook.com/jacquesesterel226",
     },
     {
       id:3,
@@ -52,8 +55,10 @@ const societies : Society[] = [
       price_range : "price_range",
       category : categories[0],
       images:[],
-      phoneNumber : "2112"
-
+      phoneNumber : "2112",
+      whatsapp : "1223232",
+      facebook: "https://www.facebook.com/jacquesesterel226",
+      
     }
   ]
 

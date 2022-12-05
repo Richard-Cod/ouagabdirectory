@@ -8,6 +8,8 @@ interface Society{
     images : string[]
 
     phoneNumber : string
+    whatsapp : string
+    facebook:string
      
 
 

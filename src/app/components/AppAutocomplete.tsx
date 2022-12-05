@@ -4,7 +4,7 @@ import AppInput from './AppInput'
 import foodlogo from 'app/foodlogo.svg'
 
 function AppAutocomplete({AutocompleteItems} : {AutocompleteItems:any}) {
-  const [query, setquery] = useState("ma")
+  const [query, setquery] = useState("")
   return (
     <div className=''>
         <AppInput 
