@@ -3,7 +3,7 @@ import { getAuthHeader } from "logic/helper/auth";
 import makeRequest from "logic/helper/makeRequest";
 import { Category } from "logic/models/Category";
 import { ICategoryRepo } from "logic/interfaces/repositories/CategoryRepo/ICategoryRepo";
-import { Society } from "logic/models/Post";
+import { Society } from "logic/models/Society";
 import { InMemoryDatas } from "./InMemoryDatas";
 import { ISocietyRepo } from "./ISocietyRepo";
 

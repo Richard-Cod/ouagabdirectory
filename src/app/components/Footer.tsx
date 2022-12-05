@@ -8,7 +8,7 @@ const src ="https://cdn.icon-icons.com/icons2/2699/PNG/512/airbnb_logo_icon_1706
 function MenuItem({label,selected,Icon} : {label : string,selected : boolean,Icon:any}) {
   return (
     <div className='text-center  p-2'>
-          <Icon className={`h-6 w-6 mx-auto  ${selected ? "text-red-600" : "text-[#a7a6a7] "}`} />
+          <Icon style={{strokeWidth: 2.5}} className={`h-6 w-6 mx-auto  ${selected ? "text-red-600" : "text-[#a7a6a7] "}`} />
           <p className={`mt-2 font-medium text-xs ${selected ? "text-black" : "text-[#a7a6a7] "}`}>{label}</p>
     </div>
   )

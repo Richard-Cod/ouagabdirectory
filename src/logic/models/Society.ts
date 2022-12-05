@@ -6,6 +6,8 @@ interface Society{
     bio : string;
     price_range : string;
     images : string[]
+
+    phoneNumber : string
      
 
 

@@ -6,6 +6,9 @@ const appConstants = {
 }
 const ROUTES = {
     home: "/",
+    societyDetails : "/societyDetails/:societyName",
+    toSocietyDetails : (societyName : string) =>  "/societyDetails/"+societyName,
+    
 
     register: "/register",
     login: "/login",

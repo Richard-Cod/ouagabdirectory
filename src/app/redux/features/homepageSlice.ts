@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Category } from 'logic/models/Category'
-import { Society } from 'logic/models/Post'
+import { Society } from 'logic/models/Society'
 import { boolean } from 'yup'
 import { RootState } from '../store'
 
@@ -66,10 +66,6 @@ export const selectLikedSocietiesIds = (state: RootState) => state.homePageReduc
 
 export const isSocietyLiked = (societiesIds: number[] |null , societyId:number) => {
   const found = societiesIds?.find((id) => id === societyId )
-  console.log("found")
-  console.log("societyId",societyId)
-  console.log(found)
-  console.log(societiesIds)
   return found !== undefined
 }
 

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 
 
 
-import { Society } from "logic/models/Post"
+import { Society } from "logic/models/Society"
 import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { isSocietyLiked, likeOrDislikeSociety, selectLikedSocietiesIds, selectSocieties } from "app/redux/features/homepageSlice"
 import { formatImageFromBackend } from "logic/helper/getImageFromBackend"

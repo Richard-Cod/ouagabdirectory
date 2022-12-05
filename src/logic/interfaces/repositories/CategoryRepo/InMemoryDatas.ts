@@ -1,5 +1,5 @@
 import { Category } from "logic/models/Category";
-import { Society } from "logic/models/Post";
+import { Society } from "logic/models/Society";
 
 
 import src from 'app/image1.jpg'
@@ -32,23 +32,28 @@ const societies : Society[] = [
       bio : "Hand made ✨ Bags and accessories 🌹 || Wax_Bogolan_kôkô Donda_Faso Danfani || Shipping worldwide 🌍 From Burkina 🇧🇫 || 📞 +22676274313",
       price_range : "2000 - 95000",
       category : categories[0],
-      images:[src,src1,src2,src3]
+      images:[src,src1,src2,src3],
+      phoneNumber : "2112"
     },
     {
       id:2,
-      name : "name",
+      name : "Mayyan",
       bio : "bio",
       price_range : "price_range",
       category : categories[0],
-      images:[]
+      images:[],
+      phoneNumber : "2112"
+
     },
     {
       id:3,
-      name : "name",
+      name : "Teratech",
       bio : "bio",
       price_range : "price_range",
       category : categories[0],
-      images:[]
+      images:[],
+      phoneNumber : "2112"
+
     }
   ]
 

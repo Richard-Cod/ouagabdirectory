@@ -1,6 +1,6 @@
 import { selectSocieties } from 'app/redux/features/homepageSlice'
 import { useAppSelector } from 'app/redux/hooks'
-import { Society } from 'logic/models/Post'
+import { Society } from 'logic/models/Society'
 import React from 'react'
 import ItemCard from './ItemCard'
 

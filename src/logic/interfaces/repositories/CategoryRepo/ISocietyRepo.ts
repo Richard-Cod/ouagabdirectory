@@ -1,4 +1,4 @@
-import { Society } from "logic/models/Post";
+import { Society } from "logic/models/Society";
 
 interface ISocietyRepo{
     getSocieties() : Promise<Society[] | null>
