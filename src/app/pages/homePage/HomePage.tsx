@@ -6,10 +6,13 @@ import Navbar from "app/components/Navbar"
 import { selectCategories, selectSocieties } from "app/redux/features/homepageSlice"
 import { selectHomePageVM } from "app/redux/features/vms"
 import { useAppSelector } from "app/redux/hooks"
+import { useState } from "react"
 
 function HomePage() {
   // const categories = useAppSelector(selectCategories)
   const societies = useAppSelector(selectSocieties)
+
+  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(1)
 
 
   return (
@@ -20,7 +23,7 @@ function HomePage() {
         <FilterButton />
       </div>
       {societies && <ItemCardList societies={societies} />}
-      <Footer />
+      <Footer selectedMenuItem={selectedFooterMenuItem} setSelectedMenuItem={setselectedFooterMenuItem} />
     </div>
   )
 }
