@@ -2,7 +2,8 @@ const appConstants = {
     ACCESS_TOKEN_KEY : "accessToken",
     REFRESH_TOKEN_KEY : "refreshToken",
 
-    imgPreview:"data:image/gif;base64,R0lGODdhAQABAPAAAP8AAAAAACwAAAAAAQABAAACAkQBADs="
+    imgPreview:"data:image/gif;base64,R0lGODdhAQABAPAAAP8AAAAAACwAAAAAAQABAAACAkQBADs=",
+    heartIconPathId : "heartItemPath"
 }
 const ROUTES = {
     home: "/",

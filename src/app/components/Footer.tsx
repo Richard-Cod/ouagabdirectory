@@ -38,7 +38,7 @@ function Footer({selectedMenuItem,setSelectedMenuItem} : {selectedMenuItem:numbe
     
   ]
   return (
-    <div className='h-18 w-full sticky bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50'>
+    <div className='h-18 w-full fixed bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50'>
       {MENUS.map((v) => {
         return <span  onClick={() => setSelectedMenuItem(v.id)}>
           <MenuItem Icon={v.icon} label={v.label} selected={selectedMenuItem === v.id} />

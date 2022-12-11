@@ -11,21 +11,27 @@ import { Society } from "logic/models/Society"
 import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { isSocietyLiked, likeOrDislikeSociety, selectLikedSocietiesIds, selectSocieties } from "app/redux/features/homepageSlice"
 import { formatImageFromBackend } from "logic/helper/getImageFromBackend"
-import { Link } from "react-router-dom"
-import { ROUTES } from "constants/constants"
+import { Link, useNavigate } from "react-router-dom"
+import appConstants, { ROUTES } from "constants/constants"
 import HeartItem from "./HeartItem"
 
 
 
 function ItemCard({society} : {society : Society}) {
-  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
+  const dispatch = useAppDispatch()
+  const handleClick = (e:any) => {
+    const isOnHeartIcon = Array.from(e.target.classList).includes(appConstants.heartIconPathId)
+    if(!isOnHeartIcon) navigate(ROUTES.toSocietyDetails(society.name))
+
+  }
   
   const sr = "https://palmares.lemondeduchiffre.fr/images/joomlart/demo/default.jpg"
 
   return (
       // <Link to={ROUTES.toSocietyDetails(society.name)}>
-        <div className='space-y-1 relative hover:bg-gray-50 cursor-pointer rounded-2xl'>
+        <div onClick={(e) => handleClick(e)} className='space-y-1 relative hover:bg-gray-50 cursor-pointer rounded-2xl'>
         {(!society.images || society.images.length === 0) && <AppSlider>
           <img src={sr}  className=" w-full mx-auto rounded-2xl mb-3 " />
         </AppSlider>}

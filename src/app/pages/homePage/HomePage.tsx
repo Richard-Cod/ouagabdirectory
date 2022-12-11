@@ -12,17 +12,34 @@ function HomePage() {
   // const categories = useAppSelector(selectCategories)
   const societies = useAppSelector(selectSocieties)
 
-  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(1)
+  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(2)
 
+  const  EXPLORE = <div className="sm:hidden">
+    <Navbar />
+    <div className="flex justify-between  pl-4 pr-10">
+      <CategoriesList />
+      <FilterButton />
+    </div>
+    {societies && <ItemCardList societies={societies} />}
+</div>
+
+const FAVORIS = <div> 
+  <h1>Favoris</h1>
+  <p>Connectez-vous pour consulter vos favoris</p>
+</div>
+
+const AUTHPAGE = <div>
+  <p>Connexion inscription</p>
+</div>
 
   return (
-    <div className="sm:hidden">
-      <Navbar />
-      <div className="flex justify-between  pl-4 pr-10">
-        <CategoriesList />
-        <FilterButton />
-      </div>
-      {societies && <ItemCardList societies={societies} />}
+    <div>
+      <div style={{flex: ""}} className="">
+      {selectedFooterMenuItem === 1 && EXPLORE }
+      {selectedFooterMenuItem === 2 && FAVORIS}
+      {selectedFooterMenuItem === 3 && AUTHPAGE}
+
+    </div>
       <Footer selectedMenuItem={selectedFooterMenuItem} setSelectedMenuItem={setselectedFooterMenuItem} />
     </div>
   )

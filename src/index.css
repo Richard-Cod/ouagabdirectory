@@ -28,6 +28,10 @@ code {
   scrollbar-width: none;  /* Firefox */
 } 
 
+.reduceSize:active {
+  transform: scale(0.96);
+}
+
 .biz:active div{
   transform: scale(0.96);
 }
