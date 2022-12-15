@@ -16,7 +16,7 @@ class LoginPageVM{
 
     userSchema = Yup.object({
         email:  Yup.string().email("Le mail est invalide ").required("Le mail est requis"),
-        password:  Yup.string().min(4 ,  "Minimun 4 lettres please ").required("Le mot de passe est requis"),
+        password:  Yup.string().min(4 ,  "Minimun 4 lettres s'il vous plaît ").required("Le mot de passe est requis"),
       });
 
       login = async (loginPayload : LoginPayload) : Promise<void> => {

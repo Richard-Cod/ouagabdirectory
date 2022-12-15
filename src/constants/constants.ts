@@ -4,6 +4,7 @@ const appConstants = {
 
     imgPreview:"data:image/gif;base64,R0lGODdhAQABAPAAAP8AAAAAACwAAAAAAQABAAACAkQBADs=",
     heartIconPathId : "heartItemPath",
+    appfooterId : "appfooterId",
 
 
     
@@ -12,6 +13,11 @@ const appConstants = {
 }
 const ROUTES = {
     home: "/",
+    favorite: "/favorite",
+    auth : "/auth",
+    toLoginFromAuth : "/auth?mode=login",
+
+    
     societyDetails : "/societyDetails/:societyName",
     toSocietyDetails : (societyName : string) =>  "/societyDetails/"+societyName,
     

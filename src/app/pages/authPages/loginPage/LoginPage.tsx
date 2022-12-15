@@ -101,7 +101,8 @@ function LoginPage() {
 
               <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                 <span>Pas de compte ? </span>
-                <a href="#" className="text-gray-700 underline">S'inscrire</a>.
+                <span onClick={() => navigate(ROUTES.auth)} className="text-gray-700 underline cursor-pointer">S'inscrire</span>.
+
               </p>
             </div>
           </form>

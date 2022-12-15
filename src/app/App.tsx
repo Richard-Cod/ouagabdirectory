@@ -10,7 +10,7 @@ import {
 
 import { selectHomePageVM } from 'app/redux/features/vms';
 
-import { ChangePasswordPage, ForgetPasswordPage, HomePage, LoginPage, RegisterPage, ResetPasswordPage } from './pages';
+import { ChangePasswordPage, ForgetPasswordPage, LoginPage, RegisterPage, ResetPasswordPage } from './pages';
 import appConstants, { ROUTES } from 'constants/constants';
 
 import { LocalDataRepository } from 'logic/interfaces/LocalDataRepository';
@@ -26,6 +26,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { setCategories, setSelectedCategory, setSocieties } from './redux/features/homepageSlice';
 import SocietyDetailPage from './pages/societyDetailPage/SocietyDetailPage';
+import FavoritePage from './pages/favoritePage/FavoritePage';
+import AuthNav from './pages/authNav/AuthNav';
+import ExplorePage from './pages/explore/ExplorePage';
+import onUserScrollTopOrEnd from 'logic/helper/onUserScrollTopOrEnd';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -52,7 +56,6 @@ function App() {
   }
 
   const run = () => {
-    console.clear()
     loadCurrentUser()
     loadCategories()
     loadSocieties()
@@ -76,12 +79,24 @@ function App() {
   //   asyncFunc()
   // }, [])
 
+
+
+
+
   return (
     <Router>
         <Routes>
-          <Route path={ROUTES.home} element={<HomePage />} />
+          <Route path={ROUTES.home} element={<ExplorePage />} />
+          <Route path={ROUTES.favorite} element={<FavoritePage />} />
+          <Route path={ROUTES.auth} element={<AuthNav />} />
+          
 
           <Route path={ROUTES.societyDetails} element={<SocietyDetailPage />} />
+
+
+
+
+
 
 
           <Route path={ROUTES.login} element={<LoginPage />} />

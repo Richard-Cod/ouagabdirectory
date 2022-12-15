@@ -7,7 +7,7 @@ import {
 } from 'app/pages/authPages'
 
 
-import HomePage from "app/pages/homePage/HomePage"
+import HomePage from "app/pages/appPageLayout/AppPageLayout"
 
 
 export {

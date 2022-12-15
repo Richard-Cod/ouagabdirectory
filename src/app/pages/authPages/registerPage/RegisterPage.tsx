@@ -10,12 +10,6 @@ import AuthLayout from "app/components/AuthLayout";
 import AppFormikInput from "app/components/AppFormikInput";
 import { selectUser } from "app/redux/features/userSlice";
 
-
-
-
-
-
-
 function RegisterPage() {
   const user = useAppSelector(selectUser)
   const label = "login"
@@ -105,7 +99,7 @@ function RegisterPage() {
 
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                     <span>Vous avez déja un compte ? </span>
-                    <a href="#" className="text-gray-700 underline">Se connecter</a>.
+                    <span onClick={() => navigate(ROUTES.toLoginFromAuth)} className="text-gray-700 underline cursor-pointer">Se connecter</span>.
                   </p>
                 </div>
         </form>

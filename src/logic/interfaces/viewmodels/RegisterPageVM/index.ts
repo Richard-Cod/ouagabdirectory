@@ -15,7 +15,7 @@ class RegisterPageVM{
         first_name:  Yup.string().required("le prénom est requis"),
         last_name:  Yup.string().required("le nom est requis"),
         email:  Yup.string().email("Le mail est invalide ").required("le mail est requis"),
-        password:  Yup.string().min(8 ,  "Minimun 8 lettres please ").required("le mot de passe est requis"),
+        password:  Yup.string().min(8 ,  "Minimun 8 lettres s'il vous plaît ").required("le mot de passe est requis"),
       });
 
     register = async (registerPayload:RegisterPayload) => {
