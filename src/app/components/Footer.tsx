@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BeakerIcon } from '@heroicons/react/24/solid'
 import { HeartIcon as OutlineHeartIcon , MagnifyingGlassIcon , UserCircleIcon  } from '@heroicons/react/24/outline'
 
@@ -19,6 +19,7 @@ MenuItem.defaultProps = {
 }
 
 function Footer({selectedMenuItem,setSelectedMenuItem} : {selectedMenuItem:number,setSelectedMenuItem:any}) {
+  
   const  MENUS = [
     {
       id : 1,
@@ -37,8 +38,53 @@ function Footer({selectedMenuItem,setSelectedMenuItem} : {selectedMenuItem:numbe
     }
     
   ]
+
+  const footerID = "appfooterId"
+  
+  // get the element to hide/show
+  const el = document.getElementById(footerID);
+  // get the current scroll position
+  let previousScrollPosition = window.pageYOffset;
+
+
+  console.clear()
+  // listen for scroll events
+  window.addEventListener("scroll", function (event:any) {
+
+
+    // get the current scroll position
+    let currentScrollPosition = window.scrollY;
+
+    // check if the user is scrolling up or down
+    if (currentScrollPosition > previousScrollPosition) {
+      // the user is scrolling down, show the element
+      // element.style.display = 'block';
+      el?.classList.remove('appFadeIn')
+      el?.classList.add('appFadeOut')
+      console.log("sccroll down")
+    } else {
+      // the user is scrolling up, hide the element
+      // element.style.display = 'none';
+      console.log("sccroll up")
+      el?.classList.remove('appFadeOut')
+      el?.classList.add('appFadeIn')
+
+    }
+
+    // update the previous scroll position
+    previousScrollPosition = currentScrollPosition;
+
+        
+});
+
+
+
+
   return (
-    <div className='h-18 w-full fixed bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50'>
+    <div
+    id={footerID}
+     className='h-18 w-full fixed bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50
+      '>
       {MENUS.map((v) => {
         return <span  onClick={() => setSelectedMenuItem(v.id)}>
           <MenuItem Icon={v.icon} label={v.label} selected={selectedMenuItem === v.id} />

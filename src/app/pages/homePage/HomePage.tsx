@@ -6,13 +6,17 @@ import Navbar from "app/components/Navbar"
 import { selectCategories, selectSocieties } from "app/redux/features/homepageSlice"
 import { selectHomePageVM } from "app/redux/features/vms"
 import { useAppSelector } from "app/redux/hooks"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 function HomePage() {
   // const categories = useAppSelector(selectCategories)
   const societies = useAppSelector(selectSocieties)
 
-  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(2)
+  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(1)
+
+
+  
+
 
   const  EXPLORE = <div className="sm:hidden">
     <Navbar />
@@ -21,19 +25,25 @@ function HomePage() {
       <FilterButton />
     </div>
     {societies && <ItemCardList societies={societies} />}
-</div>
+  </div>
 
-const FAVORIS = <div> 
-  <h1>Favoris</h1>
-  <p>Connectez-vous pour consulter vos favoris</p>
-</div>
+  const FAVORIS = <div> 
+    <h1>Favoris</h1>
+    <p>Connectez-vous pour consulter vos favoris</p>
+  </div>
 
-const AUTHPAGE = <div>
-  <p>Connexion inscription</p>
-</div>
+  const AUTHPAGE = <div>
+    <p>Connexion inscription</p>
+  </div>
+
+
+
+  
 
   return (
-    <div>
+    <div 
+    id="rrr"
+    >
       <div style={{flex: ""}} className="">
       {selectedFooterMenuItem === 1 && EXPLORE }
       {selectedFooterMenuItem === 2 && FAVORIS}
