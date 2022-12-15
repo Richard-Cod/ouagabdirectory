@@ -1,3 +1,4 @@
+import AuthLayout from "app/components/AuthLayout"
 import CategoriesList from "app/components/CategoriesList"
 import FilterButton from "app/components/FilterButton"
 import Footer from "app/components/Footer"
@@ -7,7 +8,7 @@ import { selectCategories, selectSocieties } from "app/redux/features/homepageSl
 import { selectHomePageVM } from "app/redux/features/vms"
 import { useAppSelector } from "app/redux/hooks"
 import { useEffect, useRef, useState } from "react"
-import { LoginPage } from "../authPages"
+import { LoginPage, RegisterPage } from "../authPages"
 
 function HomePage() {
   // const categories = useAppSelector(selectCategories)
@@ -32,7 +33,9 @@ function HomePage() {
   </div>
 
   const AUTHPAGE = <div>
-    <LoginPage />
+    {/* <LoginPage /> */}
+    <RegisterPage />
+
   </div>
 
 
