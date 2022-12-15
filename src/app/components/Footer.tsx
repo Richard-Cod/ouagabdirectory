@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BeakerIcon } from '@heroicons/react/24/solid'
 import { HeartIcon as OutlineHeartIcon , MagnifyingGlassIcon , UserCircleIcon  } from '@heroicons/react/24/outline'
+import onUserScrollTopOrEnd from 'logic/helper/onUserScrollTopOrEnd'
 
 const src ="https://cdn.icon-icons.com/icons2/2699/PNG/512/airbnb_logo_icon_170605.png"
 
@@ -43,39 +44,20 @@ function Footer({selectedMenuItem,setSelectedMenuItem} : {selectedMenuItem:numbe
   
   // get the element to hide/show
   const el = document.getElementById(footerID);
-  // get the current scroll position
-  let previousScrollPosition = window.pageYOffset;
+
 
 
   console.clear()
   // listen for scroll events
-  window.addEventListener("scroll", function (event:any) {
-
-
-    // get the current scroll position
-    let currentScrollPosition = window.scrollY;
-
-    // check if the user is scrolling up or down
-    if (currentScrollPosition > previousScrollPosition) {
-      // the user is scrolling down, show the element
-      // element.style.display = 'block';
-      el?.classList.remove('appFadeIn')
-      el?.classList.add('appFadeOut')
-      console.log("sccroll down")
-    } else {
-      // the user is scrolling up, hide the element
-      // element.style.display = 'none';
-      console.log("sccroll up")
-      el?.classList.remove('appFadeOut')
-      el?.classList.add('appFadeIn')
-
-    }
-
-    // update the previous scroll position
-    previousScrollPosition = currentScrollPosition;
-
-        
-});
+ onUserScrollTopOrEnd(
+  () => {
+    el?.classList.remove('appFadeIn')
+    el?.classList.add('appFadeOut')
+  },
+  () => {
+    el?.classList.remove('appFadeOut')
+    el?.classList.add('appFadeIn')
+  })
 
 
 
