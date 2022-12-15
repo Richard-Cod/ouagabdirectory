@@ -3,7 +3,12 @@ const appConstants = {
     REFRESH_TOKEN_KEY : "refreshToken",
 
     imgPreview:"data:image/gif;base64,R0lGODdhAQABAPAAAP8AAAAAACwAAAAAAQABAAACAkQBADs=",
-    heartIconPathId : "heartItemPath"
+    heartIconPathId : "heartItemPath",
+
+
+    
+    projectName : "Ouagadirectory",
+    projectDescription : "Vous enregistrez votre business et le monde entier pourra vous contacter 🙂"
 }
 const ROUTES = {
     home: "/",

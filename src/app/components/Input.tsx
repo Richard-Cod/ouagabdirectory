@@ -11,10 +11,12 @@ function Input({formik ,name,label, type} : {formik : any ;name : string;label :
                 />
                 <label className="focus-label">{label}</label>
             </div>
+
             {formik.touched[name] && formik.errors[name] ? (
             <div className="alert alert-danger" role="alert">
                  {formik.errors[name]}
             </div>
+            
           ) : null}
         </div>
     )

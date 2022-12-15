@@ -7,14 +7,13 @@ import { selectCategories, selectSocieties } from "app/redux/features/homepageSl
 import { selectHomePageVM } from "app/redux/features/vms"
 import { useAppSelector } from "app/redux/hooks"
 import { useEffect, useRef, useState } from "react"
+import { LoginPage } from "../authPages"
 
 function HomePage() {
   // const categories = useAppSelector(selectCategories)
   const societies = useAppSelector(selectSocieties)
 
-  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(1)
-
-
+  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(3)
   
 
 
@@ -33,7 +32,7 @@ function HomePage() {
   </div>
 
   const AUTHPAGE = <div>
-    <p>Connexion inscription</p>
+    <LoginPage />
   </div>
 
 
