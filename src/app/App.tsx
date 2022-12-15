@@ -48,7 +48,6 @@ function App() {
 
   const loadCategories = async () => {
     const result = await homePageVM.getCategories()
-    console.log(result)
     if(result){
       dispatch(setCategories(result))
       if(result.length > 0) dispatch(setSelectedCategory(result[0]))

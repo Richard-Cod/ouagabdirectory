@@ -17,7 +17,7 @@ const t = "https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb
 function AuthLayout({children} : {children:any}) {
 
     return (
-      <div className="pb-20">
+      <div className="">
         {/* <Form label={"Connexion"} /> */}
         <section className="bg-white">
           <div className="lg:grid lg:min-h-screen lg:grid-cols-12">

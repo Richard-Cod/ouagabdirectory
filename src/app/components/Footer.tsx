@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { BeakerIcon } from '@heroicons/react/24/solid'
 import { HeartIcon as OutlineHeartIcon , MagnifyingGlassIcon , UserCircleIcon  } from '@heroicons/react/24/outline'
 import onUserScrollTopOrEnd from 'logic/helper/onUserScrollTopOrEnd'
@@ -22,7 +22,7 @@ MenuItem.defaultProps = {
   selected : false
 }
 
-function Footer({selectedMenuItem,setSelectedMenuItem} : {selectedMenuItem:number,setSelectedMenuItem:any}) {
+function Footer() {
   
   const  MENUS = [
     {
@@ -47,20 +47,28 @@ function Footer({selectedMenuItem,setSelectedMenuItem} : {selectedMenuItem:numbe
   
   
   // get the element to hide/show
-  const el = document.getElementById(footerID);
+  // const el = document.getElementById(footerID);
+  // console.log(el)
 
+  const elementRef = useRef<HTMLElement|null>(null);
 
-  // listen for scroll events
-  onUserScrollTopOrEnd(
-    () => {
-      el?.classList.remove('appFadeIn')
-      el?.classList.add('appFadeOut')
-    },
-    () => {
-      el?.classList.remove('appFadeOut')
-      el?.classList.add('appFadeIn')
-    })
+  useEffect(() => {
 
+    if(elementRef.current){
+      // listen for scroll events
+      onUserScrollTopOrEnd(
+        () => {
+          elementRef.current?.classList.remove('appFadeIn')
+          elementRef.current?.classList.add('appFadeOut')
+        },
+        () => {
+          elementRef.current?.classList.remove('appFadeOut')
+          elementRef.current?.classList.add('appFadeIn')
+        })
+    
+  }
+  }, [elementRef])
+  
 
 
 
@@ -68,6 +76,7 @@ function Footer({selectedMenuItem,setSelectedMenuItem} : {selectedMenuItem:numbe
 
   return (
     <footer
+    ref={elementRef}
     id={footerID}
      className='h-18 w-full fixed bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50
       '>

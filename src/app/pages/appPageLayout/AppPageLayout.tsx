@@ -13,11 +13,10 @@ import { LoginPage, RegisterPage } from "../authPages"
 import ExplorePage from "../explore/ExplorePage"
 
 function AppPageLayout({children} : {children:any}) {
-  const [selectedFooterMenuItem, setselectedFooterMenuItem] = useState(1)
   return (
-    <div className="sm:hidden">
+    <div className="sm:hidden pb-20">
       {children}
-      <Footer selectedMenuItem={selectedFooterMenuItem} setSelectedMenuItem={setselectedFooterMenuItem} />
+      <Footer />
     </div>
     
   )
