@@ -1,8 +1,8 @@
 import React from 'react'
 
-function AppFormikInput({formik,label,name,type, ...rest} : {formik : any ,label : any ,name : any ,type : any ,[rest:string]:any }) {
+function AppFormikInput({formik,label,name,type,containerClasses, ...rest} : {formik : any ,label : string ,name : string ,type : string ,containerClasses :string,[rest:string]:any }) {
   return (
-    <div className="col-span-6 sm:col-span-3">
+    <div className={containerClasses}>
         <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
             {label}
         </label>
@@ -14,11 +14,14 @@ function AppFormikInput({formik,label,name,type, ...rest} : {formik : any ,label
          type={type}
 
         className="mt-1 w-full 
+        pl-2
+        h-9
+        border-[1px]
         rounded-md 
         border-gray-200 bg-white text-sm text-gray-700
         shadow-sm" />
         {formik.touched[name] && formik.errors[name] ? (
-            <div className="alert alert-danger" role="alert">
+            <div className="p-2 bg-red-100 text-red-900 text-xs font-semibold" role="alert">
                  {formik.errors[name]}
             </div>
             

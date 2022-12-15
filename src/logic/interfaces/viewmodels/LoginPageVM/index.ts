@@ -12,11 +12,11 @@ class LoginPageVM{
         this.dependencyContainer =  new DependencyContainer()
     }
 
-    initialValues = {email : "admin@gmail.com" , password : "admin"}
+    initialValues = {email : "gmail.com" , password : "admin"}
 
     userSchema = Yup.object({
-        email:  Yup.string().email("Le mail est invalide ").required("le mail est requis"),
-        password:  Yup.string().min(4 ,  "Minimun 4 lettres please ").required("le mot de passe est requis"),
+        email:  Yup.string().email("Le mail est invalide ").required("Le mail est requis"),
+        password:  Yup.string().min(4 ,  "Minimun 4 lettres please ").required("Le mot de passe est requis"),
       });
 
       login = async (loginPayload : LoginPayload) : Promise<void> => {
