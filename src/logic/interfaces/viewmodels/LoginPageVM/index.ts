@@ -12,7 +12,7 @@ class LoginPageVM{
         this.dependencyContainer =  new DependencyContainer()
     }
 
-    initialValues = {email : "gmail.com" , password : "admin"}
+    initialValues = {email : "test@gmail.com" , password : "admin"}
 
     userSchema = Yup.object({
         email:  Yup.string().email("Le mail est invalide ").required("Le mail est requis"),

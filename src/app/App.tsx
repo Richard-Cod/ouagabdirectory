@@ -29,7 +29,6 @@ import SocietyDetailPage from './pages/societyDetailPage/SocietyDetailPage';
 import FavoritePage from './pages/favoritePage/FavoritePage';
 import AuthNav from './pages/authNav/AuthNav';
 import ExplorePage from './pages/explore/ExplorePage';
-import onUserScrollTopOrEnd from 'logic/helper/onUserScrollTopOrEnd';
 
 function App() {
   const dispatch = useAppDispatch()

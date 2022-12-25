@@ -13,7 +13,7 @@ function MenuItem({label,selected,Icon,href} : {label : string,selected : boolea
   return (
     <div onClick={() => navigate(href) } className='text-center  p-2 cursor-pointer'>
           <Icon style={{strokeWidth: 2.5}} className={`h-6 w-6 mx-auto  ${selected ? "text-red-600" : "text-[#a7a6a7] "}`} />
-          <p className={`mt-2 font-medium text-xs ${selected ? "text-black" : "text-[#a7a6a7] "}`}>{label}</p>
+          <p style={{fontSize : 10}} className={`mt-2 font-medium text-xs ${selected ? "text-black" : "text-[#a7a6a7] "}`}>{label}</p>
     </div>
   )
 }
@@ -78,7 +78,7 @@ function Footer() {
     <footer
     ref={elementRef}
     id={footerID}
-     className='h-18 w-full fixed bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50
+     className='w-full fixed bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50
       '>
       {MENUS.map((v) => {
         return  <MenuItem 
