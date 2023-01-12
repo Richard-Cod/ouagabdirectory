@@ -9,14 +9,14 @@ const boxstyle = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  width: "100%",
+  // bgcolor: 'background.paper',
+  // border: '2px solid #000',
   boxShadow: 24,
-  p: 4,
+  // p: 4,
 };
 
-export default function AppModal({children,modalContent,ModalLabel} : {children:any , modalContent : any,ModalLabel:any}) {
+export default function AppModal({children,modalContent,ModalLabel,className} : {children:any , modalContent : any,ModalLabel:any,className?:string}) {
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
@@ -32,7 +32,9 @@ export default function AppModal({children,modalContent,ModalLabel} : {children:
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={boxstyle}>
+        <Box 
+        sx={boxstyle}
+        className={className}>
           {modalContent}
         </Box>
       </Modal>

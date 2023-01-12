@@ -5,7 +5,6 @@ import AppModal from './AppModal'
 import SocietyAutocomplete from './SocietyAutocomplete'
 
 function Navbar() {
-  
 
   const ModalLabelComp = (props : any) => {
     return <AppInput 
@@ -17,7 +16,7 @@ function Navbar() {
   />
   }
 
-  const modalContent = <div>
+  const modalContent = <div className=' h-80'>
     <SocietyAutocomplete />
   </div>
 
@@ -25,6 +24,7 @@ function Navbar() {
     <div className='my-3'>
       <div className='px-4 cursor-pointer'>
         <AppModal 
+          className='bg-white p-6'
           modalContent={modalContent} 
           ModalLabel={(onClick : any) => <ModalLabelComp onClick={onClick} /> }> 
         </AppModal>

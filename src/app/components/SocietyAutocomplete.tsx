@@ -11,8 +11,8 @@ function SocietyAutocomplete() {
   const societies = useAppSelector(selectSocieties)
 
   const showItem = (society : Society) => {
-    return <Link to={ROUTES.toSocietyDetails(society.name)} className="navbar-brand logo">
-    <div className='p-2 border-[1px] border-gray-200 flex items-center cursor-pointer hover:border-gray-400 duration-300 '>
+    return <Link to={ROUTES.toSocietyDetails(society.name)} className="navbar-brand logo ">
+    <div className='p-2 border-[1px] border-gray-200 flex items-center cursor-pointer hover:border-gray-400 duration-300 mb-2 '>
     <img className='h-8 w-8 mr-4' src={formatImageFromBackend(society.images[0]) } />
     <p className=''> {society.name} </p>
     </div>
