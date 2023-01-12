@@ -36,8 +36,9 @@ class HttpAuthenticator implements IAuthenticator{
           return false
         }
   }
-  async logout(): Promise<void> {
+  async logout(): Promise<boolean> {
     await removeToken()
+    return true
   }
 
   async me(): Promise<User> {

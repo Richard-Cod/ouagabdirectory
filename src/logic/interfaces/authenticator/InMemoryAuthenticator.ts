@@ -2,6 +2,7 @@ import { User } from "../../models/User";
 import { IAuthenticator, LoginPayload, LoginResult, ProfilePayload, RegisterPayload, RegisterResult } from "logic/interfaces/authenticator/IAuthenticator";
 
 class InMemoryAuthenticator implements IAuthenticator{
+
     login(loginPayload: LoginPayload): Promise<LoginResult | null> {
         console.log(loginPayload)
         const prom = new Promise<null>((resolve) => {
@@ -50,9 +51,11 @@ class InMemoryAuthenticator implements IAuthenticator{
     registerWithFacebook(): void {
         throw new Error("Method not implemented.");
     }
-    logout(): void {
-        throw new Error("Method not implemented.");
+    logout(): Promise<boolean> {
+        alert("deconnexion")
+        return Promise.resolve(true)
     }
+    
     
 }
 

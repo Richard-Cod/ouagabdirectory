@@ -29,6 +29,11 @@ class HomePageVM{
         return result
     }
 
+    async logout(): Promise<boolean> {
+        const result  = await  this.dependencyContainer.authenticator.logout()
+        return result
+    }
+
     
 
 }

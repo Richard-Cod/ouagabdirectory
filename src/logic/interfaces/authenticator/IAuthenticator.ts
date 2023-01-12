@@ -45,7 +45,7 @@ interface IAuthenticator{
 
     registerWithFacebook() : void
     
-    logout() : void
+    logout() : Promise<boolean>
 
 }
 

@@ -17,6 +17,8 @@ const ROUTES = {
     auth : "/auth",
     toLoginFromAuth : "/auth?mode=login",
 
+    profile:"/profile",
+
     
     societyDetails : "/societyDetails/:societyName",
     toSocietyDetails : (societyName : string) =>  "/societyDetails/"+societyName,

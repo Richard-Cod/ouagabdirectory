@@ -28,6 +28,7 @@ import SocietyDetailPage from './pages/societyDetailPage/SocietyDetailPage';
 import FavoritePage from './pages/favoritePage/FavoritePage';
 import AuthNav from './pages/authNav/AuthNav';
 import ExplorePage from './pages/explore/ExplorePage';
+import Profil from './pages/profil/Profil';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -86,6 +87,7 @@ function App() {
           <Route path={ROUTES.home} element={<ExplorePage />} />
           <Route path={ROUTES.favorite} element={<FavoritePage />} />
           <Route path={ROUTES.auth} element={<AuthNav />} />
+          <Route path={ROUTES.profile} element={<Profil />} />
           
 
           <Route path={ROUTES.societyDetails} element={<SocietyDetailPage />} />

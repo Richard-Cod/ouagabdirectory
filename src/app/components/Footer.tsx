@@ -4,6 +4,34 @@ import { HeartIcon as OutlineHeartIcon , MagnifyingGlassIcon , UserCircleIcon  }
 import onUserScrollTopOrEnd from 'logic/helper/onUserScrollTopOrEnd'
 import appConstants, { ROUTES } from 'constants/constants'
 import { useNavigate } from 'react-router-dom'
+import { selectUser } from 'app/redux/features/userSlice'
+import { useAppSelector } from 'app/redux/hooks'
+
+
+
+const NAV_ITEMS = {
+  explore : {
+    icon : MagnifyingGlassIcon,
+    label: "Explorer",
+    href: ROUTES.home
+  },
+  favorite : {
+    icon : OutlineHeartIcon,
+    label: "Favoris",
+    href: ROUTES.favorite
+  },
+  auth : {
+    icon : UserCircleIcon,
+    label: "Connexion",
+    href: ROUTES.auth
+  },
+  profil : {
+    icon : UserCircleIcon,
+    label: "Profil",
+    href: ROUTES.profile
+  }
+}
+
 
 const src ="https://cdn.icon-icons.com/icons2/2699/PNG/512/airbnb_logo_icon_170605.png"
 
@@ -23,33 +51,15 @@ MenuItem.defaultProps = {
 }
 
 function Footer() {
+  const user = useAppSelector(selectUser)
   
   const  MENUS = [
-    {
-      icon : MagnifyingGlassIcon,
-      label: "Explorer",
-      href: ROUTES.home
-    },
-    {
-      icon : OutlineHeartIcon,
-      label: "Favoris",
-      href: ROUTES.favorite
-    },
-    {
-      icon : UserCircleIcon,
-      label: "Connexion",
-      href: ROUTES.auth
-    }
-    
+    NAV_ITEMS.explore,
+    NAV_ITEMS.favorite,
   ]
+  user ? MENUS.push(NAV_ITEMS.profil) : MENUS.push(NAV_ITEMS.auth)
 
   const footerID = appConstants.appfooterId
-  
-  
-  // get the element to hide/show
-  // const el = document.getElementById(footerID);
-  // console.log(el)
-
   const elementRef = useRef<HTMLElement|null>(null);
 
   useEffect(() => {
