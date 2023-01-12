@@ -22,9 +22,11 @@ class LoginPageVM{
       login = async (loginPayload : LoginPayload) : Promise<void> => {
         try {
             const result = await this.dependencyContainer.authenticator.login(loginPayload)
-            const ldr = new LocalDataRepository()
-            ldr.save(appConstants.ACCESS_TOKEN_KEY,result.access)
-            ldr.save(appConstants.REFRESH_TOKEN_KEY,result.refresh)
+            if(result){
+                const ldr = new LocalDataRepository()
+                ldr.save(appConstants.ACCESS_TOKEN_KEY,result.access)
+                ldr.save(appConstants.REFRESH_TOKEN_KEY,result.refresh)
+            }
             
         } catch (error : any) {
             console.log(error.message)

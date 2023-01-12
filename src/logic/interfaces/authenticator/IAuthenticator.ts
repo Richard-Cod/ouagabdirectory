@@ -30,7 +30,7 @@ export interface ProfilePayload {
 }
 
 interface IAuthenticator{
-    login(loginPayload:LoginPayload) : Promise<LoginResult>
+    login(loginPayload:LoginPayload) : Promise<LoginResult | null>
 
     me() : Promise<User>
 
@@ -38,7 +38,7 @@ interface IAuthenticator{
 
     loginWithFacebook() : void
 
-    register(registerPayload:RegisterPayload) : Promise<RegisterResult>
+    register(registerPayload:RegisterPayload) : Promise<RegisterResult | null>
     saveProfileInfos(profilePayload:ProfilePayload) : Promise<boolean>
 
     registerWithGoogle() : void

@@ -14,6 +14,8 @@ import AuthLayout from "app/components/AuthLayout";
 import { AtSymbolIcon, HeartIcon } from "@heroicons/react/24/solid";
 import BuildFormikForm, { FormikFormBuilderProp, FormikFormInput } from "app/components/BuildFormikForm";
 import buildFormikForm from "app/components/BuildFormikForm";
+import LottieCmp from "app/components/LottieCmp";
+import redloading from "app/animations/redloading.json"
 
 
 const t = "https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
@@ -48,9 +50,9 @@ function LoginPage() {
   const formik = useFormik({
     initialValues: loginPageVM.initialValues,
     validationSchema: loginPageVM.userSchema,
-    onSubmit: values => {
+    onSubmit: async (values) => {
       const {email , password} = values
-      loginPageVM.login({email , password})
+      await loginPageVM.login({email , password})
     },
   });
 
@@ -69,12 +71,21 @@ function LoginPage() {
   ]
     return (
         <AuthLayout>
-         <form 
+          {formik.isSubmitting && <div className=" text-center">
+          <LottieCmp 
+            animationData={redloading}
+            classNames="w-[250px] h-[250px] mt-10   mx-auto"
+          />
+          <p className="text-sm">connexion en cours ...</p>
+        </div>
+         }
+
+         {!formik.isSubmitting && <form 
             onSubmit={formik.handleSubmit} 
             className="mt-8 grid grid-cols-6 gap-6">
             {buildFormikForm({formik,inputs})}
             <BottomPart formik={formik} />
-          </form>
+          </form>}
         </AuthLayout>
     )
 }

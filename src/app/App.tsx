@@ -15,7 +15,6 @@ import appConstants, { ROUTES } from 'constants/constants';
 
 import { LocalDataRepository } from 'logic/interfaces/LocalDataRepository';
 
-
 import {User} from "logic/models/User"
 import { setUser } from 'app/redux/features/userSlice';
 
@@ -94,16 +93,12 @@ function App() {
 
 
 
-
-
-
-          <Route path={ROUTES.login} element={<LoginPage />} />
-          <Route path={ROUTES.register} element={<RegisterPage />} />
+          {/* <Route path={ROUTES.login} element={<LoginPage />} /> */}
+          {/* <Route path={ROUTES.register} element={<RegisterPage />} /> */}
           
           <Route path={ROUTES.changePassword} element={<ChangePasswordPage />} />
           <Route path={ROUTES.forgetPassword} element={<ForgetPasswordPage />} />
           <Route path={ROUTES.resetPassword} element={<ResetPasswordPage />} />
-
 
 
         </Routes>

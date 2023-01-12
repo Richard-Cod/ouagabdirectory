@@ -5,9 +5,12 @@ import { useAppSelector } from "app/redux/hooks";
 import {  useFormik } from "formik";
 import { ROUTES } from "app/../constants/constants";
 import AuthLayout from "app/components/AuthLayout";
-import { selectUser } from "app/redux/features/userSlice";
 import { AtSymbolIcon, HeartIcon } from "@heroicons/react/24/solid";
 import buildFormikForm, { FormikFormInput } from "app/components/BuildFormikForm";
+import LottieCmp from "app/components/LottieCmp";
+
+import redloading from "app/animations/redloading.json"
+
 
 function BottomPart({formik} : {formik : any}){
   const navigate = useNavigate();
@@ -89,12 +92,21 @@ function RegisterPage() {
 
   return (
     <AuthLayout>
-        <form 
+        {formik.isSubmitting && <div className=" text-center">
+          <LottieCmp 
+            animationData={redloading}
+            classNames="w-[250px] h-[250px] mt-10   mx-auto"
+          />
+          <p className="text-sm">inscription en cours ...</p>
+        </div>
+         }
+
+       { !formik.isSubmitting && <form 
           onSubmit={formik.handleSubmit} 
           className="mt-8 grid grid-cols-6 gap-6">
             {buildFormikForm({inputs,formik})}
             <BottomPart formik={formik} />
-        </form>
+        </form>}
     </AuthLayout>
   )
 }
