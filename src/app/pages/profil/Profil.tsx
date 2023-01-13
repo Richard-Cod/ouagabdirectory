@@ -1,7 +1,6 @@
 import { selectUser, setUser } from 'app/redux/features/userSlice'
 import { selectHomePageVM } from 'app/redux/features/vms'
 import { useAppDispatch, useAppSelector } from 'app/redux/hooks'
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import AppPageLayout from '../appPageLayout/AppPageLayout'
 

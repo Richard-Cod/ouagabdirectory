@@ -37,7 +37,7 @@ function ItemCard({society} : {society : Society}) {
         </AppSlider>}
 
           {society.images && <AppSlider>
-            {society.images.map((v) => <img src={formatImageFromBackend(v)}  className="h-96 w-full mx-auto rounded-2xl mb-3 " />)}
+            {society.images.map((v,i) => <img key={i} src={formatImageFromBackend(v)}  className="h-96 w-full mx-auto rounded-2xl mb-3 " />)}
           </AppSlider>}
 
           <div className="absolute top-2 right-8 cursor-pointer"><HeartItem societyId={society.id} classNames="w-7 h-7"/></div>

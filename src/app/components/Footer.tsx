@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { BeakerIcon } from '@heroicons/react/24/solid'
 import { HeartIcon as OutlineHeartIcon , MagnifyingGlassIcon , UserCircleIcon  } from '@heroicons/react/24/outline'
 import onUserScrollTopOrEnd from 'logic/helper/onUserScrollTopOrEnd'
@@ -51,21 +51,20 @@ MenuItem.defaultProps = {
 }
 
 function Footer() {
-  const user = useAppSelector(selectUser)
-  
-  const  MENUS = [
-    NAV_ITEMS.explore,
-    NAV_ITEMS.favorite,
-  ]
-  user ? MENUS.push(NAV_ITEMS.profil) : MENUS.push(NAV_ITEMS.auth)
-
   const footerID = appConstants.appfooterId
   const elementRef = useRef<HTMLElement|null>(null);
 
+  const user = useAppSelector(selectUser)
+  const MENUS = [
+    NAV_ITEMS.explore,
+    NAV_ITEMS.favorite,
+    user ? NAV_ITEMS.profil :NAV_ITEMS.auth
+  ]
+  
+  
   useEffect(() => {
 
     if(elementRef.current){
-      // listen for scroll events
       onUserScrollTopOrEnd(
         () => {
           elementRef.current?.classList.remove('appFadeIn')
@@ -78,11 +77,6 @@ function Footer() {
     
   }
   }, [elementRef])
-  
-
-
-
-  // window.location.pathname 
 
   return (
     <footer
@@ -90,8 +84,9 @@ function Footer() {
     id={footerID}
      className='w-full fixed bottom-0 border-t-2 flex justify-center space-x-8 bg-white z-50
       '>
-      {MENUS.map((v) => {
+      {MENUS.map((v,i) => {
         return  <MenuItem 
+        key={i}
         Icon={v.icon} 
         label={v.label} 
         selected={window.location.pathname === v.href}

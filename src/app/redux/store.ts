@@ -4,6 +4,18 @@ import userReducer  from 'app/redux/features/userSlice';
 import viewModelsReducer  from 'app/redux/features/vms';
 import homePageRReducer  from 'app/redux/features/homepageSlice';
 
+
+
+// const store = configureStore({
+//   reducer: rootReducer,
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: false,
+  //   }),
+// })
+
+
+
 export const store = configureStore({
   reducer: {
     user: userReducer,
@@ -11,6 +23,10 @@ export const store = configureStore({
     
     homePageReducer : homePageRReducer
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export type AppDispatch = typeof store.dispatch;

@@ -36,6 +36,7 @@ function App() {
 
   const loadCurrentUser = async () => {
     const user = await homePageVM.getLoggedInUser()
+    // console.log(user)
     if(user)dispatch(setUser(user))
   }
 
