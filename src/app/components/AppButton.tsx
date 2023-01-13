@@ -1,14 +1,19 @@
 import React from 'react'
 
-function AppButton({label , ...rest} : {label : string,[rest:string]:any}) {
+function AppButton({label ,onClick,classNames, ...rest} : {label : string,onClick:any,classNames?:string,[rest:string]:any}) {
   return (
-    <a
-  className="inline-flex items-center rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-  href="/download"
->
-  <span className="text-sm font-medium"> {label} </span>
-
-</a>
+    <button
+      onClick={onClick}
+      className={`
+      rounded 
+      px-8 py-3
+      focus:outline-none focus:ring
+      active:text-gray-400
+      w-full
+      ${classNames}`}
+    >
+   {label} 
+</button>
   )
 }
 
